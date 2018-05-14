@@ -1,0 +1,39 @@
+camel:
+  springboot:
+    # The Camel context name
+    name: CamelRestSql
+  component:
+    servlet:
+      mapping:
+        enabled: true
+        context-path: /camel-rest-sql/*
+
+# Binding health checks to a different port
+management:
+  port: 8081
+
+# disable all management enpoints except health
+endpoints:
+  enabled: false
+  health:
+    enabled: true
+
+postgresql:
+  service:
+    # The name of the service hosting the PostgreSQL database server,
+    # can be customized using the 'POSTGRESQL_SERVICE_NAME' env variable to use a different service
+    name:     postgresql
+    # The database to use, can be customized using the 'POSTGRESQL_SERVICE_DATABASE' env variable
+    database: beerdb
+
+spring:
+  # Spring JDBC configuration
+  datasource:
+    url:      jdbc:postgresql://${${postgresql.service.name}.service.host}:${${postgresql.service.name}.service.port}/${postgresql.service.database}
+    username: beeruser
+    password: beerpw
+
+# The application configuration properties
+quickstart:
+  generateOrderPeriod: 10s
+processOrderPeriod: 30s
