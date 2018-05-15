@@ -102,6 +102,26 @@ Then find the name of the pod that runs this quickstart, and output the logs fro
 You can also use the OpenShift [web console](https://docs.openshift.com/container-platform/3.3/getting_started/developers_console.html#developers-console-video) to manage the running pods, and view logs and much more.
 
 
+#### Using the beer API
+
+You can use the following URLs (replace api-route with the correct URL as mentioned in the OpenShift Web Console) to test out the API we just implemented and is running on Red Hat OpenShift and waiting to be consumed.
+
+- Get all the beers
+
+    http://api-route/camel-rest-sql/beers
+
+- Get beer information by id
+
+    http://api-route/camel-rest-sql/beers/1
+
+- Get beer information by name
+
+    http://api-route/camel-rest-sql/beers/findByName/Grimbergen
+
+- Get beer by alcolhol percentage
+
+    http://api-route/camel-rest-sql/beers/findByPercentage/10
+
 
 
 
