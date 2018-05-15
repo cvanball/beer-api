@@ -49,20 +49,24 @@ with the following settings:
     - Database service name: postgresql
     - PostgreSQL Connection Username: beeruser
     - PostgreSQL Connection Password: beerpw
-    - PostgreSQL Database Name: beerdb  
+    - PostgreSQL Database Name: beerdb    
+    
+Grep the running postgresql pod with:
 
     $ oc get pods | grep postgresql
-    
+
     postgresql-1-qjq75   1/1       Running   0          1m
 
 - Copy data files into the pod
 
-    $ oc cp postgres/breweries.csv postgresql-1-qjq75:/tmp
+To create the tables and load data into the table use the following steps:
 
-    $ oc cp postgres/beers.csv postgresql-1-qjq75:/tmp
+    $ oc cp postgres/breweries.csv postgresql-1-qjq75:/tmp/
 
-    oc cp postgres/*.sql postgresql-1-qjq75:/tmp
--     
+    $ oc cp postgres/beers.csv postgresql-1-qjq75:/tmp/
+
+    $ oc cp postgres/*.sql postgresql-1-qjq75:/tmp/
+     
     $ oc rsh postgresql-1-qjq75
     sh-4.2$ ls /tmp
 
