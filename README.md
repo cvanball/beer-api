@@ -89,7 +89,7 @@ with the following settings:
 #### SpringBoot Application
 The example can be built and run on OpenShift using a single goal:
 
-    mvn fabric8:deploy
+    mvn -s settings.xml fabric8:deploy
 
 To list all the running pods:
 
